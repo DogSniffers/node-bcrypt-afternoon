@@ -18,7 +18,7 @@ module.exports = {
     },
     login: async(req,res) => {
         let {username,password} = req.body;
-        const getUser = await req.app.get_user(username);
+        const getUser = await req.app.get('db').get_user([username]);
         const user = getUser[0];
         if(!user){
             res.status(401).send('User not Found. Please register as a new user before logging in')
