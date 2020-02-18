@@ -52,6 +52,9 @@ export default class Header extends Component {
   }
 
   logout() {
+    axios.get('/auth/logout').then(() =>{
+      this.props.updateUser({});
+    }).catch(error => {console.log(error)})
     // axios GET to /auth/logout here
   }
 
