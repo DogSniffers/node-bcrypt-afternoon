@@ -20,6 +20,7 @@ app.use(session({
 }))
 
 app.post('/auth/register', authCtrl.register);
+app.post('/auth/login', authCtrl.login)
 
 app.listen(PORT,() =>{
     console.log(`I am listening on ${PORT}`)
