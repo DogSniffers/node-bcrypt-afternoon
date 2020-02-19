@@ -4,7 +4,8 @@ const massive = require('massive');
 const session = require('express-session');
 const {CONNECTION_STRING,SESSION_SECRET} = process.env;
 const PORT = 4000;
-const authCtrl = require('./controllers/authController')
+const authCtrl = require('./controllers/authController');
+const treasureCtrl = require('./controllers/treasureController');
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use(session({
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login)
 app.get('/auth/logout', authCtrl.logout)
+app.get('/api/treasure/dragon')
 
 app.listen(PORT,() =>{
     console.log(`I am listening on ${PORT}`)
